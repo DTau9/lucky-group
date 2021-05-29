@@ -151,11 +151,22 @@ body {
   width: 32rem;
 }
 
-.iti-mobile .iti--container {
-  height: 27rem;
+.iti--container {
+  bottom: -14.8rem;
+  height: 20rem;
   position: absolute;
-  right: 0;
-  top: -24.5rem;
+  top: unset !important;
+  left: unset !important;
+  right: -1.2rem !important;
+  width: 100%;
+}
+
+.iti-mobile .iti--container {
+  bottom: 5.1rem;
+  top: unset !important;
+  left: unset !important;
+  position: absolute;
+  right: 0rem !important;
 }
 
 .form__input_code {
@@ -180,6 +191,10 @@ body {
   padding: 0 1.8rem;
   position: static;
   width: 11.6rem;
+}
+
+.iti__selected-flag:focus-visible {
+  outline: none;
 }
 
 .form__input:focus-visible {
@@ -328,9 +343,6 @@ body {
     flex-shrink: 0;
     padding: 0 1rem;
     width: 9.6rem;
-  }
-  .iti-mobile .iti--container {
-    top: -24.5rem;
   }
   .form__input::placeholder {
     padding-left: 1rem;
