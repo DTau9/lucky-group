@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./js/intl-tel-input-17.0.0/build/css/intlTelInput.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>LuckyGroup</title>
+</head>
+
+<body>
+  <div class="order">
+    <section class="order__drag">
+      <div class="order__name-drag">Reduslim</div>
+      <div class="order__name-company">ECO</div>
+      <img src="./images/reduslim.png" alt="reduslim" class="order__img">
+    </section>
+
+    <section class="order__container-form">
+      <div class="order__title-container">
+        <h2 class="order__title">Сделай шаг к выздоровлению</h2>
+      </div>
+      <form action="post" class="form order__form">
+        <div class="form__item-group">
+          <label for="name" class="form__label">ВАШЕ <span class="form__label_color">ИМЯ</span> </label>
+          <input class="form__input" type="text" name="name" id="name" placeholder="Алексей" required minlength="2">
+        </div>
+        <div class="form__item-group form__item-group_tel">
+          <label for="phone" class="form__label">ВАШ <spann class="form__label_color">
+              ТЕЛЕФОН</span></label>
+          <input class="form__input" type="tel" name="phone" id="phone" required autocomplete="tel-country-code">
+        </div>
+        <button class="form__btn form__btn_disabled">Заказать<span class="form__btn_arrow"></span></button>
+      </form>
+    </section>
+    <section class="order__trust">
+      <span>Trusted</span>
+      <span class="order__lock"></span>
+      <span>Secure</span>
+    </section>
+  </div>
+  <script defer src="./js/intl-tel-input-17.0.0/build/js/intlTelInput.min.js"></script>
+  <script defer src="./js/index.js"></script>
+</body>
+
+</html>
