@@ -8,50 +8,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const iti = window.intlTelInput(inputTel, {
     utilsScript: './js/intl-tel-input-17.0.0/build/js/utils.js',
-    autoPlaceholder: 'aggressive',
+    separateDialCode: true,
     customContainer: 'form__input_tel',
     initialCountry: 'ru',
     dropdownContainer: inputContainer
   });
 
   // валидация формы
-  function isValid(inputName, inputTel) {
+  function isValidName(inputName) {
     const regexpName = /^[a-zA-ZА-Яа-яЁё\s]+$/g;
     regexpName.lastIndex = 0;
-
-    if ((inputName.value.trim() && regexpName.test(inputName.value) && inputName.value.length > 1)
-      && (inputTel.value.trim() && iti.isValidNumber() && inputTel.value.length > 0)) {
-      return true;
-    } else {
-      return false;
-    }
+    return Boolean(inputName.value.trim() && regexpName.test(inputName.value) && inputName.value.length > 1)
   }
 
-  form.addEventListener('input', () => {
-    if (isValid(inputName, inputTel)) {
+  function isValidTel(inputTel) {
+    return Boolean(inputTel.value.trim() && iti.isValidNumber() && inputTel.value.length > 0)
+  }
+
+  function formValidation() {
+    if (isValidName(inputName)) {
+      inputName.classList.remove('form__input_not-valid')
+      inputName.classList.add('form__input_valid')
+    } else {
+      inputName.classList.remove('form__input_valid')
+      inputName.classList.add('form__input_not-valid')
+    }
+
+    if (isValidTel(inputTel)) {
+      inputTel.classList.remove('form__input_not-valid')
+      inputTel.classList.add('form__input_valid')
+    } else {
+      inputTel.classList.remove('form__input_valid')
+      inputTel.classList.add('form__input_not-valid')
+    }
+
+    if (isValidName(inputName) && isValidTel(inputTel)) {
       btnSubmit.disabled = false;
       btnSubmit.classList.remove('form__btn_disabled');
     } else {
       btnSubmit.disabled = true;
       btnSubmit.classList.add('form__btn_disabled');
     }
-  })
+  }
+
+  form.addEventListener('input', formValidation)
+
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     form.reset();
     alert('Форма отправлена.')
   })
 
-  // отображение буквенного кода страны
+  // отображение буквенного и цифрового кода страны
   const flagContainer = document.querySelector(".iti__flag-container");
-  const contryCodeNode = document.createElement('div');
-  contryCodeNode.innerText = 'ru';
-  contryCodeNode.className = 'form__input_code';
-  flagContainer.prepend(contryCodeNode)
+  const contryLetterCodeNode = document.createElement('div');
+  const contryDialCodeNode = document.createElement('div');
+  contryLetterCodeNode.innerText = 'ru';
+  contryDialCodeNode.innerText = '+7';
+  contryLetterCodeNode.className = 'form__input_code';
+  contryDialCodeNode.className = 'dial-code';
+  flagContainer.prepend(contryLetterCodeNode)
+  inputContainer.prepend(contryDialCodeNode)
 
   inputTel.addEventListener("countrychange", () => {
     const countryLetterCode = iti.getSelectedCountryData().iso2;
-    contryCodeNode.innerText = countryLetterCode ? countryLetterCode : '';
+    const countryDialCode = iti.getSelectedCountryData().dialCode;
+
+    contryLetterCodeNode.innerText = countryLetterCode ? countryLetterCode : '';
+    contryDialCodeNode.innerText = countryDialCode ? `+${countryDialCode}` : '';
   })
 
 })
