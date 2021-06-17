@@ -7,15 +7,33 @@ html {
 }
 
 body {
+  align-items: center;
   background-color: #F4F4F4;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.content-container {
+  width: 100%;
+}
+
+.header {
+  font: 800 3rem/3.9rem 'Montserrat', sans-serif;
+  opacity: 0.5;
+  text-align: center;
 }
 
 .order {
   box-shadow: 0px 24px 80px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-wrap: wrap;
-  margin: 7.5rem auto;
+  margin: 0 auto;
   max-width: 112rem;
   min-height: 50rem;
 }
@@ -32,7 +50,7 @@ body {
   justify-content: space-between;
   min-width: 43.6rem;
   overflow: hidden;
-  padding: 0 2.3em;
+  padding-left: 2.3em;
   position: relative;
 }
 
@@ -297,10 +315,12 @@ body {
 }
 
 @media (max-width:750px) {
+  body {
+    align-items: flex-start;
+  }
   .order {
     background-color: #fff;
     display: block;
-    margin-top: 6rem;
     padding: 0;
   }
   .order__drag {
@@ -310,6 +330,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
     height: 31rem;
+    margin: 0 auto;
+    max-width: 43rem;
     min-width: auto;
     padding: 4.1rem 2rem 0;
   }
@@ -337,6 +359,8 @@ body {
     width: 22.3rem;
   }
   .order__container-form {
+    margin: 0 auto;
+    max-width: 43rem;
     padding: 0 2rem;
   }
   .order__title-container {
@@ -361,6 +385,9 @@ body {
   }
   .form__input_tel input.form__input {
     width: 100%;
+  }
+  .form__input_tel input.form__input::placeholder {
+    padding-left: 0.5rem;
   }
   .form__input_tel .iti__flag-container {
     flex-shrink: 0;

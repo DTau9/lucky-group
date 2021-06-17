@@ -11,34 +11,37 @@
 </head>
 
 <body>
-  <div class="order">
-    <section class="order__drag">
-      <div class="order__name-drag">Reduslim</div>
-      <div class="order__name-company">ECO</div>
-      <img src="./images/reduslim.png" alt="reduslim" class="order__img">
-    </section>
-
-    <section class="order__container-form">
-      <div class="order__title-container">
-        <h2 class="order__title">Сделай шаг к выздоровлению</h2>
+  <div class="content-container">
+    <h1 class="header">Lucky Group</h1>
+    <div class="order">
+      <div class="order__drag">
+        <div class="order__name-drag">Reduslim</div>
+        <div class="order__name-company">ECO</div>
+        <img src="./images/reduslim.png" alt="reduslim" class="order__img">
       </div>
-      <form action="post" class="form order__form">
-        <div class="form__item-group">
-          <label for="name" class="form__label">ВАШЕ <span class="form__label_color">ИМЯ</span> </label>
-          <input class="form__input" type="text" name="name" id="name" placeholder="Алексей" required minlength="2">
+
+      <div class="order__container-form">
+        <div class="order__title-container">
+          <h2 class="order__title">Сделай шаг к выздоровлению</h2>
         </div>
-        <div class="form__item-group form__item-group_tel">
-          <label for="phone" class="form__label">ВАШ <spann class="form__label_color">ТЕЛЕФОН</span></label>
-          <input class="form__input" type="tel" name="phone" id="phone" required autocomplete="tel-country-code">
-        </div>
-        <button class="form__btn form__btn_disabled">Заказать<span class="form__btn_arrow"></span></button>
-      </form>
-    </section>
-    <section class="order__trust">
-      <span>Trusted</span>
-      <span class="order__lock"></span>
-      <span>Secure</span>
-    </section>
+        <form action="post" class="form order__form">
+          <div class="form__item-group">
+            <label for="name" class="form__label">ВАШЕ <span class="form__label_color">ИМЯ</span></label>
+            <input class="form__input" type="text" name="name" id="name" placeholder="Алексей" required minlength="2">
+          </div>
+          <div class="form__item-group form__item-group_tel">
+            <label for="phone" class="form__label">ВАШ <span class="form__label_color">ТЕЛЕФОН</span></label>
+            <input class="form__input" type="tel" name="phone" id="phone" required>
+          </div>
+          <button class="form__btn form__btn_disabled">Заказать<span class="form__btn_arrow"></span></button>
+        </form>
+      </div>
+      <div class="order__trust">
+        <span>Trusted</span>
+        <span class="order__lock"></span>
+        <span>Secure</span>
+      </div>
+    </div>
   </div>
   <script defer src="./js/intl-tel-input-17.0.0/build/js/intlTelInput.min.js"></script>
   <script defer src="./js/index.js"></script>
