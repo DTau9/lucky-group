@@ -16,6 +16,7 @@ body {
 }
 
 ::-webkit-scrollbar {
+<<<<<<< HEAD
   width: 0;
 }
 
@@ -27,6 +28,9 @@ body {
   font: 800 3rem/3.9rem 'Montserrat', sans-serif;
   opacity: 0.5;
   text-align: center;
+=======
+	width: 0;
+>>>>>>> fc9e9c419ee0d2320857459e126c380a936c8765
 }
 
 .order {
